@@ -32,17 +32,41 @@
                     </div>
                     <div class="panel-container show">
                         <div class="panel-content">
+                           <?php
+                                $links = [
+                                    [
+                                        'title' => 'Главная',
+                                        'href' => 'example.com',
+                                        'is_link' => true
+                                    ],
+                                    [
+                                        'title' => 'PHP',
+                                        'href' => 'example.com/php',
+                                        'is_link' => true
+                                    ],
+                                    [
+                                        'title' => 'Функции',
+                                        'href' => '',
+                                        'is_link' => false
+                                    ],
+                                ];
+                            ?>
                             <ol class="breadcrumb page-breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                                <li class="breadcrumb-item"><a href="#">PHP</a></li>
-                                <li class="breadcrumb-item active">Функции</li>
+                               <?php foreach($links as $link): ?>
+                               <?php if($link['is_link']): ?>
+                               <li class="breadcrumb-item"><a href="<?=$link['href'];?>"><?=$link['title'];?></a></li>
+                               <?php else:?>
+                               <li class="breadcrumb-item active"><?=$link['title'];?></li>
+
+                                <?php endif;?>
+                               <?php endforeach; ?>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-        
+
 
         <script src="js/vendors.bundle.js"></script>
         <script src="js/app.bundle.js"></script>
