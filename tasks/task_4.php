@@ -30,42 +30,57 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php
+                        $progressList = [
+                            [
+                             'title' => 'My Tasks',
+                             'progress' => '130 / 500',
+                             'progressBar' => 'width: 65%;',
+                            'color' => 'bg-fusion-400',
+                             'ariaValueNow' => 65
+                            ],
+                            [
+                             'title' => 'Transfered',
+                             'progress' => '440 TB',
+                             'progressBar' => 'width: 34%;',
+                                'color' => 'bg-success-500',
+                              'ariaValueNow' => 34
+                            ],
+                            [
+                             'title' => 'Bugs Squashed',
+                             'progress' => '77%',
+                             'progressBar' => 'width: 77%;',
+                                'color' => 'bg-info-400',
+                             'ariaValueNow' => 77
+                            ],
+                            [
+                             'title' => 'User Testing',
+                             'progress' => '7 days',
+                             'progressBar' => 'width: 84%;',
+                             'color' => 'bg-primary-300',
+                             'ariaValueNow' => 84
+                            ]
+                        ];
+                    ?>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <div class="d-flex mt-2">
-                                My Tasks
-                                <span class="d-inline-block ml-auto">130 / 500</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-fusion-400" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                Transfered
-                                <span class="d-inline-block ml-auto">440 TB</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-success-500" role="progressbar" style="width: 34%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                Bugs Squashed
-                                <span class="d-inline-block ml-auto">77%</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-info-400" role="progressbar" style="width: 77%;" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                User Testing
-                                <span class="d-inline-block ml-auto">7 days</span>
-                            </div>
-                            <div class="progress progress-sm mb-g">
-                                <div class="progress-bar bg-primary-300" role="progressbar" style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                           <?php foreach($progressList as $progressItem): ?>
+                                <div class="d-flex mt-2">
+                                    <?=$progressItem['title'];?>
+                                    <span class="d-inline-block ml-auto"><?=$progressItem['progress'];?></span>
+                                </div>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar <?=$progressItem['color'];?>" role="progressbar" style="<?=$progressItem['progressBar'];?>" aria-valuenow="<?=$progressItem['ariaValueNow'];?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            <?php endforeach; ?>
+
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-        
+
+
 
         <script src="js/vendors.bundle.js"></script>
         <script src="js/app.bundle.js"></script>
