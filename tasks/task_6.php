@@ -41,7 +41,7 @@
                              'hrefContact' => 'https://wrapbootstrap.com/user/myorange', //ссылка для связи
                              'linkTitle' => 'Contact Sunny', //title по ссылке для связи
                              'nickname' => '@myplaneticket', //nickname для связи
-                            'is_banned' => false
+                            'status' => 'active'
                             ],
 
                             [
@@ -53,7 +53,7 @@
                              'hrefContact' => 'https://wrapbootstrap.com/user/Walapa', //ссылка для связи
                              'linkTitle' => 'Contact Jos', //title по ссылке для связи
                              'nickname' => '@atlantez', //nickname для связи
-                            'is_banned' => false
+                            'status' => 'active'
                             ],
 
                             [
@@ -65,7 +65,7 @@
                              'hrefContact' => 'https://wrapbootstrap.com/user/lodev09', //ссылка для связи
                              'linkTitle' => 'Contact Jovanni', //title по ссылке для связи
                              'nickname' => '@lodev09', //nickname для связи
-                            'is_banned' => true
+                            'status' => 'banned'
                             ],
                             [
                             'avatar' => 'img/demo/authors/roberto.png', //Аватарка
@@ -76,16 +76,15 @@
                              'hrefContact' => 'https://wrapbootstrap.com/user/sildur', //ссылка для связи
                              'linkTitle' => 'Contact Roberto', //title по ссылке для связи
                              'nickname' => '@sildur', //nickname для связи
-                            'is_banned' => true
+                            'status' => 'banned'
                             ],
                         ];
                     ?>
                     <div class="panel-container show">
                         <div class="panel-content">
-                           <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
+                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
                             <?php foreach($personCartList as $personCartItem): ?>
-                            <?php if(!$personCartItem['is_banned']): ?>
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                            <div class="<?=$personCartItem['status'] == 'banned' ? 'banned' : ''; ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                 <img src="<?=$personCartItem['avatar'];?>" alt="<?=$personCartItem['avatarAlt'];?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
                                 <div class="ml-2 mr-3">
                                     <h5 class="m-0">
@@ -98,21 +97,6 @@
                                     <a href="<?=$personCartItem['hrefContact'];?>" class="text-info fs-sm" target="_blank" title="<?=$personCartItem['linkTitle']?>"><i class="fal fa-envelope"></i></a>
                                 </div>
                             </div>
-                            <?php else: ?>
-                            <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="<?=$personCartItem['avatar'];?>" alt="<?=$personCartItem['avatarAlt'];?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        <?=$personCartItem['title'];?>
-                                        <small class="m-0 fw-300">
-                                            <?=$personCartItem['position'];?>
-                                        </small>
-                                    </h5>
-                                    <a href="<?=$personCartItem['hrefMedia'];?>" class="text-info fs-sm" target="_blank"><?=$personCartItem['nickname'];?></a> -
-                                    <a href="<?=$personCartItem['hrefContact'];?>" class="text-info fs-sm" target="_blank" title="<?=$personCartItem['linkTitle']?>"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div>
-                            <?php endif; ?>
                             <?php endforeach; ?>
 
                         </div>
