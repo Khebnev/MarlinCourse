@@ -33,32 +33,40 @@
                     <?php
                         $progressList = [
                             [
-                             'title' => 'My Tasks',
-                             'progress' => '130 / 500',
-                             'progressBar' => 'width: 65%;',
+                            'title' => 'My Tasks',
+                            'progress' => '130 / 500',
+                            'progressBar' => 'width: 65%;',
                             'color' => 'bg-fusion-400',
-                             'ariaValueNow' => 65
+                            'ariaValueNow' => '65',
+                            'ariaValueMin' => '0',
+                            'ariaValueMax' => '100'
                             ],
                             [
                              'title' => 'Transfered',
                              'progress' => '440 TB',
                              'progressBar' => 'width: 34%;',
-                                'color' => 'bg-success-500',
-                              'ariaValueNow' => 34
+                             'color' => 'bg-success-500',
+                             'ariaValueNow' => '34',
+                             'ariaValueMin' => '0',
+                             'ariaValueMax' => '100'
                             ],
                             [
                              'title' => 'Bugs Squashed',
                              'progress' => '77%',
                              'progressBar' => 'width: 77%;',
-                                'color' => 'bg-info-400',
-                             'ariaValueNow' => 77
+                             'color' => 'bg-info-400',
+                             'ariaValueNow' => '77',
+                             'ariaValueMin' => '0',
+                             'ariaValueMax' => '100'
                             ],
                             [
                              'title' => 'User Testing',
                              'progress' => '7 days',
                              'progressBar' => 'width: 84%;',
                              'color' => 'bg-primary-300',
-                             'ariaValueNow' => 84
+                             'ariaValueNow' => '84',
+                             'ariaValueMin' => '0',
+                             'ariaValueMax' => '100'
                             ]
                         ];
                     ?>
@@ -70,7 +78,7 @@
                                     <span class="d-inline-block ml-auto"><?=$progressItem['progress'];?></span>
                                 </div>
                                 <div class="progress progress-sm mb-3">
-                                    <div class="progress-bar <?=$progressItem['color'];?>" role="progressbar" style="<?=$progressItem['progressBar'];?>" aria-valuenow="<?=$progressItem['ariaValueNow'];?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar <?=$progressItem['color'];?>" role="progressbar" style="<?=$progressItem['progressBar'];?>" aria-valuenow="<?=$progressItem['ariaValueNow'];?>" aria-valuemin="<?=$progressItem['ariaValueMin'];?>" aria-valuemax="<?=$progressItem['ariaValueMax'];?>"></div>
                                 </div>
                             <?php endforeach; ?>
 
