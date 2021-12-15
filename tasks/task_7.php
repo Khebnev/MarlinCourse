@@ -37,6 +37,9 @@
                     $statement = $pdo->prepare($sql);
                     $statement->execute();
                     $personCartList = $statement->fetchAll(PDO::FETCH_ASSOC);
+//                    echo ('<pre>');
+//                    var_dump($personCartList);
+//                    echo ('</pre>');
                     ?>
 
 
