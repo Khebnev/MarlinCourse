@@ -31,55 +31,14 @@
                         </div>
                     </div>
                     <?php
-                        $personCartList = [
-                            [
-                            'avatar' => 'img/demo/authors/sunny.png', //Аватарка
-                            'avatarAlt' => 'Sunny A.', //alt по аватарке
-                            'title' => 'Sunny A. (UI/UX Expert)', //имя и специализация
-                             'position' => 'Lead Author', //позиция
-                             'hrefMedia' => 'https://twitter.com/@myplaneticket', //ссылка на соц. сеть
-                             'hrefContact' => 'https://wrapbootstrap.com/user/myorange', //ссылка для связи
-                             'linkTitle' => 'Contact Sunny', //title по ссылке для связи
-                             'nickname' => '@myplaneticket', //nickname для связи
-                            'status' => 'active'
-                            ],
 
-                            [
-                            'avatar' => 'img/demo/authors/josh.png', //Аватарка
-                            'avatarAlt' => 'Jos K.', //alt по аватарке
-                            'title' => 'Jos K. (ASP.NET Developer)', //имя и специализация
-                             'position' => 'Partner &amp; Contributor', //позиция
-                             'hrefMedia' => 'https://twitter.com/@atlantez', //ссылка на соц. сеть
-                             'hrefContact' => 'https://wrapbootstrap.com/user/Walapa', //ссылка для связи
-                             'linkTitle' => 'Contact Jos', //title по ссылке для связи
-                             'nickname' => '@atlantez', //nickname для связи
-                            'status' => 'active'
-                            ],
-
-                            [
-                            'avatar' => 'img/demo/authors/jovanni.png', //Аватарка
-                            'avatarAlt' => 'Jovanni Lo', //alt по аватарке
-                            'title' => 'Jovanni L. (PHP Developer)', //имя и специализация
-                             'position' => 'Partner &amp; Contributor', //позиция
-                             'hrefMedia' => 'https://twitter.com/@lodev09', //ссылка на соц. сеть
-                             'hrefContact' => 'https://wrapbootstrap.com/user/lodev09', //ссылка для связи
-                             'linkTitle' => 'Contact Jovanni', //title по ссылке для связи
-                             'nickname' => '@lodev09', //nickname для связи
-                            'status' => 'banned'
-                            ],
-                            [
-                            'avatar' => 'img/demo/authors/roberto.png', //Аватарка
-                            'avatarAlt' => 'Roberto R.', //alt по аватарке
-                            'title' => 'Roberto R. (Rails Developer)', //имя и специализация
-                             'position' => 'Partner &amp; Contributor', //позиция
-                             'hrefMedia' => 'https://twitter.com/@sildur', //ссылка на соц. сеть
-                             'hrefContact' => 'https://wrapbootstrap.com/user/sildur', //ссылка для связи
-                             'linkTitle' => 'Contact Roberto', //title по ссылке для связи
-                             'nickname' => '@sildur', //nickname для связи
-                            'status' => 'banned'
-                            ],
-                        ];
+                    $pdo = new PDO("mysql:host=MarlinCourse; dbname=MarlinCourse", "mysql", "mysql");
+                    $sql = "SELECT * FROM personcartlist";
+                    $statement = $pdo->prepare($sql);
+                    $statement->execute();
+                    $personCartList = $statement->fetchAll(PDO::FETCH_ASSOC);
                     ?>
+
 
                     <div class="panel-container show">
                         <div class="panel-content">
